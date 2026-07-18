@@ -21,6 +21,7 @@ The dataset contains:
 - Excel
 - SQL
 - GitHub
+- snowflake
 
 ## Business Questions
 
