@@ -1,1 +1,27 @@
+Data Validation
 
+SELECT *
+FROM RECRUITMENT_SOURCE_EFFECTIVENESS
+LIMIT 10;
+DESCRIBE TABLE RECRUITMENT_SOURCE_EFFECTIVENES
+
+
+Business Questions Answered
+1. Which recruitment source produced the most successful hires?
+
+SELECT
+SOURCE,
+COUNT(*) AS TOTAL_HIRES
+FROM RECRUITMENT_SOURCE_EFFECTIVENESS
+Insight: Jobs.ie produced the highest number of successful hires in the dataset.
+
+2. Which account received the most hires?
+
+SELECT
+ACCOUNT,
+COUNT(*) AS TOTAL_HIRES
+FROM RECRUITMENT_SOURCE_EFFECTIVENESS
+GROUP BY ACCOUNT
+ORDER BY TOTAL_HIRES DESC;
+
+3.
