@@ -2,37 +2,56 @@
 
 ## Project Overview
 
-This project analyses recruitment source effectiveness across multiple fictional client accounts.
+This project analyses recruitment source effectiveness using SQL in Snowflake.
 
-## Dataset
+The dataset focuses on fictional candidates who were successfully hired and started in different fictional accounts intakes. The dataset only includes successful hires because it focuses on identifying which recruitment sources generates the highest number of successful starters.
 
-The dataset contains:
+The purpose of this project is to demonstrate how recruitment data can be analysed to support better sourcing decisions.
 
-- Candidate ID
-- Candidate Name
-- Account
-- Role
-- Work Eligibility
-- Source
-- Start Date
+## Business Objective
+
+The main objective is to answer the following question:
+
+Which recruitment sources produced the strongest hiring outcomes?
+
+The analysis also explores hiring outcomes by account, role, work eligibility and intake start date.
 
 ## Tools Used
 
-- Excel
-- SQL
-- GitHub
-- snowflake
+- Excel: used for initial data cleaning and CSV preparation
+- Snowflake: used to upload the dataset and run SQL analysis
+- SQL: used to query and analyse recruitment source effectiveness
+- Power BI: used to create dashboard visuals
+- GitHub: used to document and share the project
 
-## Business Questions
+## Dataset
 
-1. Which recruitment source generated the most hires?
-2. Which account hired the most candidates?
-3. Which source worked best for each account?
-4. Which work eligibility category was most common?
+The dataset contains successful hires/starters only.
 
-## Skills Demonstrated
+Key fields used in the analysis:
 
-- Data Cleaning
-- SQL Analysis
-- Recruitment Analytics
-- Business Reporting
+| Column | Description |
+|---|---|
+| Candidate_ID | Unique anonymised candidate identifier |
+| Account | Account or campaign the candidate was hired for |
+| Role | Role the candidate was hired into |
+| Work_Eligibility | Candidate work eligibility category |
+| Source | Recruitment source used |
+| Start_Date | Candidate start date/intake date |
+
+## Data Preparation
+
+The original file was cleaned in Excel and converted into CSV format.
+
+A no-header version was uploaded into Snowflake. After upload, the default Snowflake columns were renamed from C1, C2, C3 and so on to meaningful column names.
+
+## Snowflake Table Preparation
+
+```sql
+ALTER TABLE RECRUITMENT_SOURCE_EFFECTIVENESS RENAME COLUMN C1 TO CANDIDATE_ID;
+ALTER TABLE RECRUITMENT_SOURCE_EFFECTIVENESS RENAME COLUMN C2 TO CANDIDATE_NAME;
+ALTER TABLE RECRUITMENT_SOURCE_EFFECTIVENESS RENAME COLUMN C3 TO ACCOUNT;
+ALTER TABLE RECRUITMENT_SOURCE_EFFECTIVENESS RENAME COLUMN C4 TO ROLE;
+ALTER TABLE RECRUITMENT_SOURCE_EFFECTIVENESS RENAME COLUMN C5 TO WORK_ELIGIBILITY;
+ALTER TABLE RECRUITMENT_SOURCE_EFFECTIVENESS RENAME COLUMN C6 TO SOURCE;
+ALTER TABLE RECRUITMENT_SOURCE_EFFECTIVENESS RENAME COLUMN C7 TO START_DATE;
